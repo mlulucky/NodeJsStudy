@@ -1,0 +1,33 @@
+html(lang="en")
+    head
+        title SCOTT.emp CRUD
+        meta(charset="UTF-8")
+        link(rel="stylesheet" href="/public/css/empList.css")
+    body
+        h1 사원 리스트 (Read)
+        // p=empList
+        table
+            thead
+                tr
+                    th 사번
+                    th 이름
+                    th 급여
+                    th 입사일
+                    th 부서
+                    th 상세
+            tbody
+                -for(const emp of empList)
+                 tr
+                    td=emp.EMPNO
+                    td=emp.ENAME
+                    td=emp.SAL
+                    td=emp.HIREDATE.toLocaleDateString("ko-KR")
+                    td=emp.DEPTNO
+                    td
+                        // a(href="empDetail.do?empno="+emp.EMPNO) 상세
+                        a(href=`/empDetail.do?empno=${emp.EMPNO}`) 상세
+
+
+            // mysql 에서 HIREDATE 시간이 없다. 기본 : date 의 toString
+            // == 은 변수를 출력한다.
+            // do 는 동적페이지 확장자명

@@ -1,0 +1,23 @@
+html(lang="en")
+    head
+        title SCOTT.dept CRUD
+        meta(charset="UTF-8")
+    body
+        h1 부서 수정(Update)
+        form(name="deptUpdateForm",action="/deptUpdate.do",method="POST")
+            // action : 폼에있는 내역을 어디로 전달할거냐, 액션 페이지
+            div
+                p
+                    span 부서번호 :
+                    strong=dept.DEPTNO
+                    input(value=dept.DEPTNO,name="deptno",type="hidden")
+                    // name : 파라미터 이름. 파라미터 키값
+                p
+                    span 부서이름 :
+                    input(value=dept.DNAME,name="dname")
+                p
+                    span 지역 :
+                    input(value=dept.LOC,name="loc")
+                p
+                    a(href=`/deptDelete.do?deptno=${dept.DEPTNO}`) 삭제&nbsp;
+                    button(type="submit") 수정제출

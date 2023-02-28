@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- meta : 인코딩 정보 지정 / 글자 안깨진다  -->
+    <title>view 렌더링</title>
+</head>
+<body>
+    <h1>템플릿 엔진의 등장과 view 렌더의 개념을 알아보자~</h1>
+    <p>model1 : 서버 동적페이지에 view(html) 가 포함되어 있는 형태</p> <!-- view : 클라이언트 화면에 보이는 것, html 같은 거 -->
+    <p>model2 : MVC 패턴으로 구현한 웹앱</p> <!-- 동적페이지와 view 가 분리되어 있는 형태 or MVC 패턴 -->
+    <p>MVC : 동적페이지를 db를 접속하는 부분(Model)과 요청을 처리하는 부분(Controller)과 View 를 분리하는 구조</p>
+    <h2>템플릿 엔진(view 를 렌더링하는 엔진)</h2>
+
+
+    <h2>model1 deptList
+        <a href="/deptListModel1.do">고~</a> <!-- 복습 -->
+    </h2>
+    <h2>html 파일을 분리한 후 fs(파일시스템) 로 불러서 deptList 를 Object js로 반환 후 클라이언트가 렌더
+        <a href="/deptList.do">고~</a> <!-- 분리 (잘 쓰지는 않는 방식)-->
+    </h2>
+    <h2>deptList.pug 로 렌더링 deptList
+        <a href="/deptListPug.do">고~</a> <!-- 제대로 분리 -->
+    </h2>
+    <h2>empList.pug 로 렌더링 empList
+        <a href="/empListPug.do">고~</a> <!-- 제대로 분리 -->
+    </h2>
+</body>
+</html>

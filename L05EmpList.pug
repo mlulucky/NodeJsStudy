@@ -1,0 +1,27 @@
+html
+    head
+        meta(charset="UTF-8")
+    body
+        h1 사원리스트
+        table
+            thead
+                tr
+                    th 사원번호
+                    th 사원이름
+                    th 직업
+                    th 상사번호
+                    th 입사일
+                    th 급여
+                    th 보상금
+                tbody
+                    -for(let emp of empList)
+                        tr
+                            td
+                                a(href=`L05EmpDetail.do?empno=${emp.EMPNO}`)=emp.EMPNO
+                            td=emp.ENAME
+                            td=emp.JOB
+                            td=emp.MGR
+                            td=emp.HIREDATE.toLocaleDateString()
+                            // td=emp.HIREDATE.toLocaleString("ko") // mysql date 타입이 두개 1. date(타임이 없다 - 시간이 00시로 기본 나온다), 2. datetime
+                            td=emp.SAL
+                            td=emp.COMM

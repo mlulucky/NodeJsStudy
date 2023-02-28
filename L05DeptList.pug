@@ -1,0 +1,37 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+    body
+        h1 pug 로 html 을 서버에서 렌더하자!
+        h2 템플릿 엔진과 pug
+        p 템플릿 엔진 : view(html) 를 렌더링하는 머신(JVM 같은)으로 v8 엔진과는 별도로 동작 (v8 엔진 , 템플릿 엔진 따로 동작)
+        p view(html) 렌더 : 서버사이드에 html 을 만들 때 view 와 동적 페이지를 분리해서 만드는 것을 말한다.
+        p pug : node 와 express 에서 가장 많이 사용되는 템플릿 엔진으로 xml 을 파이썬이나 Sass 처럼 tab(들여쓰기로)으로 포함관계를 표현
+        p 오늘은 여기까지인데 꼭!! empListPug.do 를 만들어 보세요~~!!!(mysql2,pug 사용)
+        table
+            thead
+                tr
+                    th 부서번호
+                    th 부서이름
+                    th 부서위치
+                tbody
+                    -for(let dept of deptList)
+                        tr
+                            td=dept.DEPTNO
+                            td=dept.DNAME
+                            td=dept.LOC
+
+// deptList 란?! key 이름! 값은 rows!(== DEPT 테이블 오브젝트객체. Array 배열)
+// L05ViewRenders.js 에서
+// let html=pug.renderFile("L05DeptList.pug",{deptList:rows});
+// L05DeptList.pug 문서에 넘긴 오브젝트 rows (== DEPT 테이블 오브젝트객체. Array 배열)
+// {deptList:rows} 는 오브젝트 key:value 의미
+
+// 퍼그에서 반복문을 쓰겠다 -for
+// = 은 출력하겠다는 의미 ex) td=dept.DEPTNO // 서버에서 오브젝트를 렌더해서 html 로 출력한다
+// 데이터를 퍼그에게 넘기면 출력 => 📍서버사이드 렌더
+// html 을 짧게 쓴다
+// 탭으로 띄우는 거 - 부모자식 관계
+// 텍스트 노드는 띄어쓰기
+// pug 서버에서 html 로 바껴서 전달 된다
+// 코드가 짧은게 sexy 하다
